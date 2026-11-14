@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CCSkin - credit card sticker studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Schibsted+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-flip" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+</defs></svg>
+<div class="strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="app">
+  <main class="panel">
+    <div class="brand"><span class="logo">CCSkin</span><span class="mono">Sticker studio</span></div>
+    <h1>Dress your card.</h1>
+    <p class="lead">Add the Image, Download, Print, and Stick to your Debit/Credit Card skin</p>
+
+    <div class="step"><h2>Artwork</h2></div>
+    <div class="slots" id="tiles"></div>
+
+    <div class="step"><h2>Finish</h2></div>
+    <label class="sw"><span><b>Chip window</b><small>Cut-out on the front sticker · ISO 85.6 × 54 mm</small></span><input type="checkbox" id="chip" checked><i></i></label>
+
+    <div class="actions"><button class="btn go" id="go" type="button"><span>Convert</span><svg class="i"><use href="#i-arrow"/></svg></button></div>
+  </main>
+
+  <section class="stage" aria-label="Preview">
+    <div class="pv" id="prev" hidden>
+      <header><span class="mono">Preview</span><span class="chip" id="side">Front</span></header>
+      <canvas id="gl" aria-label="3D card preview. Drag to rotate."></canvas>
+      <div class="hint">Drag to turn the card</div>
+      <div class="bar">
+        <button class="btn ghost" id="flip" type="button"><svg class="i"><use href="#i-flip"/></svg>Flip card</button>
+        <button class="btn dl" id="dl" type="button"><svg class="i"><use href="#i-down"/></svg>Download PDF</button>
+      </div>
+    </div>
+    <div class="empty"><div class="ghostcard"></div><div><h2>Your card<br>appears here.</h2><p>Add both images, then press Convert.</p></div></div>
+  </section>
+</div>
+<div id="msg" role="status" aria-live="polite"></div>
+
+<script src="vendor/pdf-lib.min.js"></script>
+<script src="vendor/three.min.js"></script>
+<script>window.THREE||document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>')</script>
+<script src="js/app.js"></script>
+</body>
+</html>
